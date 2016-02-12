@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <h1>Online</h1>
+  <br />
+  <hr class="btn-danger">
+  <table class="table" id="personDataTable" style="width: 500px;">
+    <thead>
+      <tr>
+        <th>Ramal</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="tbodyExtens">
+      {% for exten in extens %}
+        <tr>
+          <td style="width: 30px;">{{ exten.exten }}</td>
+          <td style="width: 30px;
+                    {%if exten.status == 'Livre'%}
+                      background: green;
+                    {%elif exten.status == 'Indisponível'%}
+                      background: gray;
+                    {%elif exten.status == 'Ocupado'%}
+                      background: red;
+                    {%elif exten.status == 'Chamando'%}
+                      background: yellow;
+                    {%elif exten.status == 'Em Espera'%}
+                      background: purple;
+                    {%else%}
+                      background: blue;
+                    {%endif%}
+          ">{{ exten.status }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+</div>
+{% endblock %}

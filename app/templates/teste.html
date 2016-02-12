@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<script type="text/javascript">
+	$(function(){
+		$.get("/ajax", {clientParam: ""});
+	});
+</script>
+
+<div class="container">
+	<h1>testes com ajax </h1> <br />
+	{% for i in clientParam %}
+		{{ i.title }}
+	{% endfor %}
+</div>
+
+{% endblock %}

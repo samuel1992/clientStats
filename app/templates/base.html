@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  {% block topo %}
+  <head>
+    <title>Clients</title>
+    <meta charset="utf-8">
+    <style>
+    </style>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <script type=text/javascript src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='js/bootbox/bootbox.min.js') }}"></script>
+    <script type=text/javascript>
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    $(function($){
+      $(function(){
+        $.getJSON( $SCRIPT_ROOT + '/echo/', function(data){
+          drawTable(data.ret_data);
+          console.log(data);
+        });
+      });
+      /**
+       * Botao para enviar o formulario
+       */
+      $('#buttonSendForm').click(function(){
+        $('form input').each(function(){
+          if($(this).val()==''){
+            bootbox.alert("Juvenal! Tem campo vazio ai...corrija");
+            exit ;
+          }
+        });
+        $.ajax({
+          url: $SCRIPT_ROOT + '/add_client',
+          data: $('#formAddClient').serialize(),
+          type: 'POST',
+          async: false,
+          success: function(response){
+            //colocando vazio dentro dos inputs
+            $('input').val('');
+            //removendo a classe da div que mostra o alerta
+            $('#alertSucess').removeClass("hide");
+            updateList();
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+	    });
+    /**
+     * Icone para editar o client
+     */
+     $('body').on('click', '.buttonEditClient', function(){
+       var client_id = $(this).attr('client_id');
+       var htmlContent = $('<form class="form-inline" method="POST" role="form" id="formEditClient"></form>');
+       htmlContent.append($('<input type="text" name="title" class="form-control" placeholder="Nome Cliente" data-required />'));
+       htmlContent.append($('<input type="text" name="description" class="form-control" placeholder="Descrição" data-required />'));
+       htmlContent.append($('<input type="text" name="server" class="form-control" placeholder="Servidor" data-required />'));
+       htmlContent.append($('<input type="text" name="extensions" class="form-control" placeholder="Range de ramais" data-required />'));
+       bootbox.dialog({
+         message: htmlContent,
+         title: "Edit Client",
+         buttons:{
+           Salvar:{
+            className: "btn-success",
+            callback: function(){
+              alert("teste save");
+            }
+          },
+           Cancelar:{
+            className: "btn-danger",
+            callback: function(){
+              alert("teste cancel");
+            }
+          },
+         }
+       });
+     });
+    /**
+     * Icone para deletar o client
+     */
+  	$('body').on('click', '.buttonDeleteClient', function(){
+      // Pegando o id da linha que foi clicada (eh necessario por em uma variavel global por conta de usar dentro de um callback)
+      var client_id = $(this).attr('client_id');
+      bootbox.confirm("Juvenal ! Vai deletar o cliente <b><u>"+$(this).attr('client_name')+"</u></b>?", function(result){
+        if(result){ //em caso de ter clicado em ok (true) entao mando a requisicao do delete via ajax
+          $.ajax({
+            url: $SCRIPT_ROOT + '/del_client/',
+            data: { client_id: client_id }, // Passando o id como client_id
+            type: 'GET',
+            async: false,
+            success: function(data){
+              console.log(data);
+              updateList();
+            },
+            error: function(error){
+              console.log(error);
+            }
+          });
+        }
+      });
+  	});
+      /**
+       * Botao para fechar o alert
+       */
+      $('#buttonCloseAlert').click(function(){
+        $('.alert').addClass("hide");
+      });
+    });
+    /**
+     * Funcao para enviar os itens json e ir criando os TDs e TR
+     */
+    function drawTable(data){
+      $("#personDataTable tbody.tbodyJS").html('');
+      for(var i = 0; i < data.length; i++){
+        drawRow(data[i]);
+      }
+    }
+    /**
+     * Funcao que recebe cada item do json e cria o html em base disso
+     */
+    function drawRow(rowData){
+      var row = $("<tr></tr>");
+      $("#personDataTable tbody.tbodyJS").append(row);
+      row.append($("<td>" + rowData.title + "</td>"));
+      row.append($("<td>" + rowData.description + "</td>"));
+      row.append($("<td>" + rowData.server + "</td>"));
+      row.append($("<td>" + rowData.extensions + "</td>"));
+      row.append($("<td><i style='cursor: pointer' client_name='"+rowData.title+"' client_id='"+rowData.id+"' class='buttonEditClient glyphicon glyphicon-pencil' aria-hidden='true'></i></td>"));
+      row.append($("<td><i style='cursor: pointer' client_name='"+rowData.title+"' client_id='"+rowData.id+"' class='buttonDeleteClient glyphicon glyphicon-trash' aria-hidden='true'></i></td>"));
+    }
+    /**
+     * Funcao para atualizar a lista de clients
+     */
+    function updateList(){
+      $.getJSON( $SCRIPT_ROOT + '/echo/', function(data){
+        //criando a tabela HTML com a funcao drawTable, enviando o objeto json vindo do python
+        drawTable(data.ret_data);
+        console.log(data);
+      });
+    }
+    </script>
+  </head>
+  {% endblock %}
+  <body>
+  <!--BLOCK PARA DEFINIR UM MENU SUPERIOR-->
+  {% block menu %}
+    <nav class="navbar navbar-default">
+      <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
+      <ul class="nav navbar-nav">
+        <li><a href='{{ url_for('add_client') }}'>Cadastrar Cliente</a></li>
+      </ul>
+    </nav>
+  {% endblock %}
+  <!--/MENU-->
+  {% block content %}{% endblock %}
+  </body>
+
+</html>

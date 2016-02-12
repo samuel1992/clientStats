@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <form class="form-inline" action="/add_client" method="POST" role="form" id="formAddClient">
+    <div class="well well-lg">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <input type="text" name="title" class="form-control" placeholder="Nome Cliente" />
+            <input type="text" name="description" class="form-control" placeholder="Descrição" />
+            <input type="text" name="server" class="form-control" placeholder="Servidor" />
+            <input type="text" name="extensions" class="form-control" placeholder="Range de ramais" />
+            <button class="btn btn-success" type="button" id="buttonSendForm">Enviar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div id="alertSucess" class="alert alert-success hide" role="alert">
+    <button type="button" class="close" id="buttonCloseAlert" ><span aria-hidden="true">&times;</span></button>
+    Item foi inserido com sucesso !
+  </div>
+  <div>
+    <table class="table" id="personDataTable">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Servidor</th>
+          <th>Range de ramais</th>
+          <th style="width: 30px"></th>
+		      <th style="width: 30px"></th>
+        </tr>
+      </thead>
+      <tbody class="tbodyJS">
+        <!-- appends do javascript -->
+      </tbody>
+      </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,159 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'bootbox' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 verbose install initial load of /home/samuel/workspace/clientsConsult/package.json
+5 verbose installManyTop reading scoped package data from /home/samuel/workspace/clientsConsult/node_modules/asterisk-manager/package.json
+6 verbose installManyTop reading scoped package data from /home/samuel/workspace/clientsConsult/node_modules/mysql/package.json
+7 verbose installManyTop reading scoped package data from /home/samuel/workspace/clientsConsult/node_modules/string-format/package.json
+8 info package.json asterisk-manager@0.1.15 No license field.
+9 info package.json string-format@0.5.0 No license field.
+10 verbose readDependencies loading dependencies from /home/samuel/workspace/clientsConsult/package.json
+11 silly cache add args [ 'bootbox', null ]
+12 verbose cache add spec bootbox
+13 silly cache add parsed spec { raw: 'bootbox',
+13 silly cache add   scope: null,
+13 silly cache add   name: 'bootbox',
+13 silly cache add   rawSpec: '',
+13 silly cache add   spec: '*',
+13 silly cache add   type: 'range' }
+14 silly addNamed bootbox@*
+15 verbose addNamed "*" is a valid semver range for bootbox
+16 silly addNameRange { name: 'bootbox', range: '*', hasData: false }
+17 silly mapToRegistry name bootbox
+18 silly mapToRegistry using default registry
+19 silly mapToRegistry registry https://registry.npmjs.org/
+20 silly mapToRegistry uri https://registry.npmjs.org/bootbox
+21 verbose addNameRange registry:https://registry.npmjs.org/bootbox not in flight; fetching
+22 verbose request uri https://registry.npmjs.org/bootbox
+23 verbose request no auth needed
+24 info attempt registry request try #1 at 1:57:10 PM
+25 verbose request id 7e207d447a2945d0
+26 http request GET https://registry.npmjs.org/bootbox
+27 http 200 https://registry.npmjs.org/bootbox
+28 silly get cb [ 200,
+28 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly get     etag: '"EDG65UZCMUE96EOY77A2CR69B"',
+28 silly get     'content-type': 'application/json',
+28 silly get     'cache-control': 'max-age=60',
+28 silly get     'content-length': '8628',
+28 silly get     'accept-ranges': 'bytes',
+28 silly get     date: 'Wed, 07 Oct 2015 16:57:12 GMT',
+28 silly get     via: '1.1 varnish',
+28 silly get     age: '0',
+28 silly get     connection: 'keep-alive',
+28 silly get     'x-served-by': 'cache-jfk1023-JFK',
+28 silly get     'x-cache': 'HIT',
+28 silly get     'x-cache-hits': '1',
+28 silly get     'x-timer': 'S1444237032.066257,VS0,VE91',
+28 silly get     vary: 'Accept' } ]
+29 verbose get saving bootbox to /home/samuel/.npm/registry.npmjs.org/bootbox/.cache.json
+30 silly addNameRange number 2 { name: 'bootbox', range: '*', hasData: true }
+31 silly addNameRange versions [ 'bootbox', [ '3.2.0', '4.3.0', '4.4.0' ] ]
+32 silly addNamed bootbox@4.4.0
+33 verbose addNamed "4.4.0" is a plain semver version for bootbox
+34 silly mapToRegistry name bootbox
+35 silly mapToRegistry using default registry
+36 silly mapToRegistry registry https://registry.npmjs.org/
+37 silly mapToRegistry uri https://registry.npmjs.org/bootbox
+38 verbose addRemoteTarball https://registry.npmjs.org/bootbox/-/bootbox-4.4.0.tgz not in flight; adding
+39 verbose addRemoteTarball [ 'https://registry.npmjs.org/bootbox/-/bootbox-4.4.0.tgz',
+39 verbose addRemoteTarball   'ff7f898fb87d4527e547feb64158f88450d1a0c9' ]
+40 info retry fetch attempt 1 at 1:57:12 PM
+41 info attempt registry request try #1 at 1:57:12 PM
+42 http fetch GET https://registry.npmjs.org/bootbox/-/bootbox-4.4.0.tgz
+43 http fetch 200 https://registry.npmjs.org/bootbox/-/bootbox-4.4.0.tgz
+44 silly fetchAndShaCheck shasum ff7f898fb87d4527e547feb64158f88450d1a0c9
+45 verbose addTmpTarball /tmp/npm-7919-4fb8d73f/registry.npmjs.org/bootbox/-/bootbox-4.4.0.tgz not in flight; adding
+46 verbose addTmpTarball already have metadata; skipping unpack for bootbox@4.4.0
+47 silly cache afterAdd bootbox@4.4.0
+48 verbose afterAdd /home/samuel/.npm/bootbox/4.4.0/package/package.json not in flight; writing
+49 verbose afterAdd /home/samuel/.npm/bootbox/4.4.0/package/package.json written
+50 silly install resolved [ { name: 'bootbox',
+50 silly install resolved     version: '4.4.0',
+50 silly install resolved     description: 'Wrappers for JavaScript alert(), confirm() and other flexible dialogs using the Bootstrap framework',
+50 silly install resolved     directories: { test: 'tests' },
+50 silly install resolved     scripts: { test: 'karma start' },
+50 silly install resolved     repository: { type: 'git', url: 'git://github.com/makeusabrew/bootbox.git' },
+50 silly install resolved     author: { name: 'Nick Payne', email: 'nick@kurai.co.uk' },
+50 silly install resolved     license: 'MIT',
+50 silly install resolved     main: 'bootbox.js',
+50 silly install resolved     devDependencies:
+50 silly install resolved      { 'grunt-contrib-uglify': '~0.2.2',
+50 silly install resolved        grunt: '~0.4.1',
+50 silly install resolved        karma: '~0.10.1',
+50 silly install resolved        'grunt-contrib-jshint': '~0.6.3',
+50 silly install resolved        'karma-mocha': '0.1.3',
+50 silly install resolved        'karma-phantomjs-launcher': '~0.1.0',
+50 silly install resolved        mocha: '~1.12.0',
+50 silly install resolved        'karma-coffee-preprocessor': '~0.1.0',
+50 silly install resolved        'karma-coverage': '~0.1.0',
+50 silly install resolved        'karma-junit-reporter': '~0.1.0',
+50 silly install resolved        sinon: '~1.7.3',
+50 silly install resolved        'sinon-chai': '~2.4.0',
+50 silly install resolved        'karma-chai': '0.0.1',
+50 silly install resolved        'grunt-karma': '~0.6.2' },
+50 silly install resolved     bugs: { url: 'https://github.com/makeusabrew/bootbox/issues' },
+50 silly install resolved     homepage: 'https://github.com/makeusabrew/bootbox',
+50 silly install resolved     _id: 'bootbox@4.4.0',
+50 silly install resolved     _shasum: 'ff7f898fb87d4527e547feb64158f88450d1a0c9',
+50 silly install resolved     _from: 'bootbox@*',
+50 silly install resolved     _npmVersion: '1.4.9',
+50 silly install resolved     _npmUser: { name: 'makeusabrew', email: 'nick@kurai.co.uk' },
+50 silly install resolved     maintainers: [ [Object], [Object] ],
+50 silly install resolved     dist:
+50 silly install resolved      { shasum: 'ff7f898fb87d4527e547feb64158f88450d1a0c9',
+50 silly install resolved        tarball: 'http://registry.npmjs.org/bootbox/-/bootbox-4.4.0.tgz' },
+50 silly install resolved     _resolved: 'https://registry.npmjs.org/bootbox/-/bootbox-4.4.0.tgz' } ]
+51 info install bootbox@4.4.0 into /home/samuel/workspace/clientsConsult
+52 info installOne bootbox@4.4.0
+53 verbose installOne of bootbox to /home/samuel/workspace/clientsConsult not in flight; installing
+54 verbose lock using /home/samuel/.npm/_locks/bootbox-12b13a56db6f65fa.lock for /home/samuel/workspace/clientsConsult/node_modules/bootbox
+55 silly install write writing bootbox 4.4.0 to /home/samuel/workspace/clientsConsult/node_modules/bootbox
+56 verbose unbuild node_modules/bootbox
+57 silly gentlyRm /home/samuel/workspace/clientsConsult/node_modules/bootbox is being purged from base /home/samuel/workspace/clientsConsult
+58 verbose gentlyRm don't care about contents; nuking /home/samuel/workspace/clientsConsult/node_modules/bootbox
+59 verbose tar unpack /home/samuel/.npm/bootbox/4.4.0/package.tgz
+60 verbose tar unpacking to /home/samuel/workspace/clientsConsult/node_modules/bootbox
+61 silly gentlyRm /home/samuel/workspace/clientsConsult/node_modules/bootbox is being purged
+62 verbose gentlyRm don't care about contents; nuking /home/samuel/workspace/clientsConsult/node_modules/bootbox
+63 silly gunzTarPerm modes [ '775', '664' ]
+64 error tar.unpack untar error /home/samuel/.npm/bootbox/4.4.0/package.tgz
+65 verbose unlock done using /home/samuel/.npm/_locks/bootbox-12b13a56db6f65fa.lock for /home/samuel/workspace/clientsConsult/node_modules/bootbox
+66 verbose fstream_path /home/samuel/workspace/clientsConsult/node_modules/bootbox
+67 verbose fstream_type Directory
+68 verbose fstream_class DirWriter
+69 verbose stack Error: EACCES, mkdir '/home/samuel/workspace/clientsConsult/node_modules/bootbox'
+69 verbose stack     at Error (native)
+70 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25
+70 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53
+70 verbose fstream_stack FSReqWrap.oncomplete (fs.js:95:15)
+71 verbose cwd /home/samuel/workspace/clientsConsult/app/static/js
+72 error Linux 4.0.8-200.fc21.i686+PAE
+73 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "bootbox"
+74 error node v0.12.7
+75 error npm  v2.11.3
+76 error path /home/samuel/workspace/clientsConsult/node_modules/bootbox
+77 error code EACCES
+78 error errno -13
+79 error Error: EACCES, mkdir '/home/samuel/workspace/clientsConsult/node_modules/bootbox'
+79 error     at Error (native)
+79 error  { [Error: EACCES, mkdir '/home/samuel/workspace/clientsConsult/node_modules/bootbox']
+79 error   errno: -13,
+79 error   code: 'EACCES',
+79 error   path: '/home/samuel/workspace/clientsConsult/node_modules/bootbox',
+79 error   fstream_type: 'Directory',
+79 error   fstream_path: '/home/samuel/workspace/clientsConsult/node_modules/bootbox',
+79 error   fstream_class: 'DirWriter',
+79 error   fstream_stack:
+79 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25',
+79 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53',
+79 error      'FSReqWrap.oncomplete (fs.js:95:15)' ] }
+80 error Please try running this command again as root/Administrator.
+81 verbose exit [ -13, true ]
+82 verbose unbuild node_modules/bootbox
+83 silly gentlyRm /home/samuel/workspace/clientsConsult/node_modules/bootbox is being purged from base /home/samuel/workspace/clientsConsult
+84 verbose gentlyRm don't care about contents; nuking /home/samuel/workspace/clientsConsult/node_modules/bootbox
